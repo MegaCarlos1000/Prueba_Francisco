@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Juegos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos-listado.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1>Listado de Juegos</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                {% if juegos %}
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Género</th>
+                            <th>Precio</th>
+                            <th>PEGI</th>
+                            <th>Fecha de Salida</th>
+                            <th>Plataforma</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for juego in juegos %}
+                        <tr>
+                            <td>{{ juego.nombre }}</td>
+                            <td>{{ juego.genero }}</td>
+                            <td>{{ juego.precio }}</td>
+                            <td>{{ juego.pegi }}</td>
+                            <td>{{ juego.fecha_salida }}</td>
+                            <td>{{ juego.plataforma }}</td>
+                            <td><a href="{% url 'actualizarJuego' juego.id %}" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></a></td>
+                            <td>
+                                <a href="{% url 'eliminarJuego' juego.id %}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este juego?');">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <div class="alert" role="alert">
+                    <strong>No se encuentran juegos en el sistema.</strong>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-6">
+                <a href="{% url 'index' %}" class="btn btn-danger w-100">VOLVER</a>
+            </div>
+            <div class="col-6 text-end">
+                <a href="{% url 'agregarjuego' %}" class="btn btn-info w-100">AGREGAR JUEGO</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

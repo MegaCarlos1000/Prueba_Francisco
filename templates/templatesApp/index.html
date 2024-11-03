@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Sistema De Juego</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="alert text-center">
+                <h1 class="display-4">SISTEMA de juegos</h1>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center">Bienvenido a nuestro sistema</h2>
+    <p class="text-center">Aquí puedes gestionar tus juegos de manera sencilla y rápida.</p>
+
+    <h2 class="text-center">Funciones principales</h2>
+    <p class="text-center">Explora nuestras funciones para añadir, listar y administrar tus juegos favoritos.</p>
+
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <a href="{% url 'listadojuego' %}" class="btn">Lista de Juegos</a>
+            <a href="{% url 'agregarjuego' %}" class="btn">Agregar Juego</a>
+        </div>
+    </div>
+
+    <h2 class="text-center">Soporte y Contacto</h2>
+    <p class="text-center">Si necesitas ayuda, no dudes en contactarnos a través de nuestro sistema de soporte.</p>
+
+    <footer>
+        &copy; 2024 Mega Sistema De Juego. Todos los derechos reservados.
+    </footer>
+</body>
+</html>

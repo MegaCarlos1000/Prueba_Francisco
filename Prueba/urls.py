@@ -28,4 +28,8 @@ urlpatterns = [
     path('ListaJugadores.html', views.listado),
     path('eliminarJugador/<int:id>', views.eliminarJugador),
     path('actualizarJugador/<int:id>', views.actualizarJugador),
+    path('AgregarSistema.html', views.agregarsistema),
+    path('ListaSistemas.html', views.listadosistema,name='listadosistema'),
+    path('eliminarsistema/<int:id>', views.eliminarsistema),
+    path('actualizarsistema/<int:id>', views.actualizarsistema),
 ]

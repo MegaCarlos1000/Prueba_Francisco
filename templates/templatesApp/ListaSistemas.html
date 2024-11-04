@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos-listado.css' %}">
+</head>
+<body class="container mt-5">
+    <div class="alert alert-info display-1 text-center">Listado de Sistemas</div>
+    {% if sistemas %}
+
+    <table class="table table-striped table-inverse table-responsive">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Jugador</th>
+                <th>Nombre distribuidora</th>
+                <th>Nombre desarrolladora</th>
+                <th>Descuento</th>
+                <th>Juegos</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sistema in sistemas %}
+            <tr>
+                <td>{{ sistema.jugador}}</td>
+                <td>{{ sistema.nombre_distribuidora}}</td>
+                <td>{{ sistema.nombre_desarrolladora}}</td>
+                <td>{{ sistema.descuento}}</td>
+                <td>{{ sistema.juegos}}</td>
+                <td><a href="/actualizarsistema/{{ sistema.id }}" class="btn btn-success btn-sm"><i>Actualizar</i></td>
+                <td><a href="/eliminarsistema/{{ sistema.id }}" class="btn btn-success btn-sm"><i>Eliminar</i></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    {% else %}
+    <div class="alert alert-primary" role="alert">
+        No se han encontrado sistemas
+    </div>
+
+    {% endif %}
+
+    <a href="../" class="btn btn-danger">Volver</a>
+    <a href="../AgregarJugadores.html" class="btn btn-info float-end">Agregar Jugadores</a>
+
+</body>
+<footer>
+    &copy; 2024 Mega Sistema De Juego. Todos los derechos reservados.
+</footer>
+</html>

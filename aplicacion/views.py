@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from aplicacion.forms import FormJuego,FormJugador
+from aplicacion.forms import FormJuego,FormJugador,FormSistema
 from django.contrib import messages
-from aplicacion.models import Juego,Jugador
+from aplicacion.models import Juego,Jugador,Sistema
 
 def index(request):
     return render(request, 'templatesApp/index.html')
@@ -66,3 +66,34 @@ def actualizarJugador(request,id):
         return index(request)
     data={'form':form}
     return render(request, 'templatesApp/AgregarJugadores.html',data)
+
+
+def listadosistema(request):
+    sistemas = Sistema.objects.all()
+    return render(request, 'templatesApp/ListaSistemas.html', {'sistemas': sistemas})
+
+def agregarsistema(request):
+    form = FormSistema()
+    if request.method == 'POST':
+        form = FormSistema(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listadosistema')
+    return render(request, 'templatesApp/AgregarSistema.html', {'form': form})
+
+
+def eliminarsistema(request, id):
+    sistema=Sistema.objects.get(id=id)
+    sistema.delete()
+    return redirect('/ListaSistemas.html')
+
+def actualizarsistema(request,id):
+    sistema=Sistema.objects.get(id=id)
+    form=FormSistema(instance=sistema)
+    if request.method == 'POST':
+        form = FormSistema(request.POST, instance=sistema)
+        if form.is_valid():
+            form.save()
+        return index(request)
+    data={'form':form}
+    return render(request, 'templatesApp/AgregarSistema.html',data)

@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="{% static 'css/estilos-agregar.css' %}">
 </head>
 <body class="container mt-5">
-    <div class="alert alert-info display-1 text-center">Agregar Jugador</div>
+    <div class="alert alert-info display-1 text-center">Agregar Sistema</div>
 
     <div class="row justify-content-center">
         <div class="col-md-8">
     <form method="post">
         {{ form.as_p }}
         {% csrf_token %}
-        <input type="submit" value="AGREGAR JUGADOR" class="btn btn-info">
+        <input type="submit" value="AGREGAR SISTEMA" class="btn btn-info">
     </form>
 </div>
 </div>
@@ -24,7 +24,7 @@
     
 <div class="row justify-content-center mt-5">
     <div class="col-md-4 text-center">
-    <a href="../ListaJugadores.html" class="btn btn-info mt-5">Jugadores</a>
+    <a href="../ListaSistemas.html" class="btn btn-info mt-5">Sistemas</a>
 </div>
 </div>
 </body>

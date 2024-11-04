@@ -86,4 +86,9 @@ select:focus {
     border-color: #007bff;
     outline: none;
 }
-
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #888;
+}

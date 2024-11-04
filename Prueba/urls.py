@@ -23,5 +23,9 @@ urlpatterns = [
     path('listadojuego/', views.listadojuego, name='listadojuego'),
     path('agregarjuego/', views.agregarjuego, name='agregarjuego'),
     path('eliminarJuego/<int:id>/', views.eliminarJuego, name='eliminarJuego'),  
-    path('actualizarJuego/<int:id>/', views.actualizarJuego, name='actualizarJuego'),  
+    path('actualizarJuego/<int:id>/', views.actualizarJuego, name='actualizarJuego'),
+    path('AgregarJugadores.html', views.agregarJugadores),
+    path('ListaJugadores.html', views.listado),
+    path('eliminarJugador/<int:id>', views.eliminarJugador),
+    path('actualizarJugador/<int:id>', views.actualizarJugador),
 ]

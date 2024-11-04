@@ -28,3 +28,27 @@ class Juego(models.Model):
 
     def __str__(self):
         return self.nombre
+
+
+estado=[
+    (1,'Activo'),
+    (2,'Inactivo')
+]
+
+class Jugador(models.Model):
+    nombre= models.CharField(max_length=50)
+    apellido= models.CharField(max_length=50)
+    tag= models.CharField(max_length=50)
+    edad= models.CharField(max_length=50)
+    correo= models.CharField(max_length=50)
+    estado= models.IntegerField(
+        null=False, blank=False, choices=estado
+    )
+
+class Sistema(models.Model):
+    nombre_distrubidora = models.CharField(max_length=100, verbose_name='Nombre de la Distribuidora')
+    nombre_desarrolladora = models.CharField(max_length=100, verbose_name='Nombre de la Desarrolladora')
+    descuento = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Descuento (%)')
+
+    def __str__(self):
+        return self.nombre_distrubidora

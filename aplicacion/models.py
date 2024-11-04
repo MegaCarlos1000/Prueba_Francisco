@@ -2,6 +2,9 @@ from django.db import models
 from django.core.validators import MinValueValidator
 from datetime import date
 
+from django.db import models
+from django.core.validators import MinValueValidator
+
 class Juego(models.Model):
     PEGI_CHOICES = [
         (3, 'PEGI 3: Apto para todas las edades. No contiene contenido inapropiado.'),
@@ -17,7 +20,7 @@ class Juego(models.Model):
         max_digits=10, 
         decimal_places=2, 
         verbose_name='Precio', 
-        validators=[MinValueValidator(0)]
+        validators=[MinValueValidator(0,message="El valor no puede ser negativo")]
     )
     pegi = models.IntegerField(
         choices=PEGI_CHOICES, 
@@ -30,25 +33,31 @@ class Juego(models.Model):
         return self.nombre
 
 
-estado=[
-    (1,'Activo'),
-    (2,'Inactivo')
+ESTADO_CHOICES = [
+    (1, 'Activo'),
+    (2, 'Inactivo')
 ]
 
 class Jugador(models.Model):
-    nombre= models.CharField(max_length=50)
-    apellido= models.CharField(max_length=50)
-    tag= models.CharField(max_length=50)
-    edad= models.CharField(max_length=50)
-    correo= models.CharField(max_length=50)
-    estado= models.IntegerField(
-        null=False, blank=False, choices=estado
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    tag = models.CharField(max_length=50)
+    edad = models.IntegerField()
+    correo = models.EmailField(max_length=50)
+    estado = models.IntegerField(
+        choices=ESTADO_CHOICES
     )
 
+    def __str__(self):
+        return f"{self.nombre} {self.apellido}"
+
+
 class Sistema(models.Model):
-    nombre_distrubidora = models.CharField(max_length=100, verbose_name='Nombre de la Distribuidora')
+    jugador = models.ForeignKey(Jugador, on_delete=models.CASCADE, related_name='sistemas') 
+    nombre_distribuidora = models.CharField(max_length=100, verbose_name='Nombre de la Distribuidora')
     nombre_desarrolladora = models.CharField(max_length=100, verbose_name='Nombre de la Desarrolladora')
     descuento = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Descuento (%)')
+    juegos = models.ManyToManyField(Juego, related_name='sistemas')  
 
     def __str__(self):
-        return self.nombre_distrubidora
+        return self.nombre_distribuidora

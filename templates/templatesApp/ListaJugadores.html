@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Listado Juegadores</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/estilos-listado.css' %}">
@@ -35,7 +35,8 @@
                 <td>{{ jugador.correo}}</td>
                 <td>{{ jugador.estado}}</td>
                 <td><a href="/actualizarJugador/{{ jugador.id }}" class="btn btn-success btn-sm"><i>Actualizar</i></td>
-                <td><a href="/eliminarJugador/{{ jugador.id }}" class="btn btn-success btn-sm"><i>Eliminar</i></td>
+                <td><a href="/eliminarJugador/{{ jugador.id }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar este jugador?');"><i>Eliminar</i></td>
+                    
             </tr>
             {% endfor %}
         </tbody>

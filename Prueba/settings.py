@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'aplicacion'
 ]
 
@@ -74,13 +75,14 @@ WSGI_APPLICATION = 'Prueba.wsgi.application'
 
 import pymysql
 pymysql.install_as_MySQLdb()
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "DJANGO_DEMO_EMP",
-        'USER': 'root',
-        "PASSWORD":""
+        'NAME': 'MegaBase',
+        'USER': 'admin',
+        'PASSWORD':'SJXwKz8^9C2XSx2cUYbB$g',
+        'HOST':'database-api.chm6eeuo8u2i.us-east-2.rds.amazonaws.com',
+        'PORT':'3306',
     }
 }
 

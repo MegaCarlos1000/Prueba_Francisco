@@ -22,6 +22,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('listadojuego/', views.listadojuego, name='listadojuego'),
     path('agregarjuego/', views.agregarjuego, name='agregarjuego'),
+    path('juegoapi/', views.juego_list_api),
     path('eliminarJuego/<int:id>/', views.eliminarJuego, name='eliminarJuego'),  
     path('actualizarJuego/<int:id>/', views.actualizarJuego, name='actualizarJuego'),
     path('AgregarJugadores.html', views.agregarJugadores),

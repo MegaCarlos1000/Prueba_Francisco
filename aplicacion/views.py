@@ -2,7 +2,25 @@ from django.shortcuts import render, redirect, get_object_or_404
 from aplicacion.forms import FormJuego,FormJugador,FormSistema
 from django.contrib import messages
 from aplicacion.models import Juego,Jugador,Sistema
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.decorators import api_view
+from .serializers import FormJuegoSerializer, FormJugadorSerializer, FormSistemaSerializer
+@api_view(["GET","POST","PUT","DELETE"])
 
+def juego_list_api(request):
+    if request.method == "GET":
+        juego = Juego.objects.all()
+        serializer = FormJuegoSerializer(juego, many = True)
+        return Response(serializer.data)
+    
+    if request.method == "POST":
+        serializer = FormJuegoSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data,status = status.HTTP_201_CREATED)
+        return Response(serializer.errors,status = status.HTTP_400_BAD_REQUEST)
+    
 def index(request):
     return render(request, 'templatesApp/index.html')
 
@@ -97,3 +115,6 @@ def actualizarsistema(request,id):
         return index(request)
     data={'form':form}
     return render(request, 'templatesApp/AgregarSistema.html',data)
+
+
+

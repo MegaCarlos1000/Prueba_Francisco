@@ -6,8 +6,11 @@ const Index: React.FC = () => {
     <div className="Index">
       <h1>Bienvenido</h1>
       <p>Selecciona una opción:</p>
-      <Link to="/create-game">
+      <Link to="/crear-juego">
         <button>Crear Juego</button>
+      </Link>
+      <Link to="/Lista-juego">
+        <button>Lista Juego</button>
       </Link>
       {/* Agrega más botones aquí si es necesario */}
     </div>

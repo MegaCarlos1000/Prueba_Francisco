@@ -10,7 +10,7 @@ interface FormData {
   plataforma: string;
 }
 
-const CreateGame: React.FC = () => {
+const CrearJuego: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     nombre: '',
     genero: '',
@@ -117,4 +117,4 @@ const CreateGame: React.FC = () => {
   );
 };
 
-export default CreateGame;
+export default CrearJuego;

@@ -32,6 +32,15 @@
             <a href="/ListaSistemas.html" class="btn btn-info">Listado de Sistemas</a>
             <a href="/AgregarSistema.html" class="btn btn-info">Agregar Sistemas</a>
         </div>
+        <div class="col-md-4 text-center">
+            <!-- API Buttons -->
+            <a href="{% url 'juegoapi1' %}" class="btn btn-secondary">API Lista de Juegos</a>
+            <a href="{% url 'juegoapi2' pk=1 %}" class="btn btn-secondary">API Detalle Juego (PK 1)</a>
+            <a href="{% url 'jugadorapi1' %}" class="btn btn-secondary">API Lista de Jugadores</a>
+            <a href="{% url 'jugadorapi2' pk=1 %}" class="btn btn-secondary">API Detalle Jugador (PK 1)</a>
+            <a href="{% url 'sistemaapi1' %}" class="btn btn-secondary">API Lista Sistema</a>
+            <a href="{% url 'sistemaapi2' pk=1 %}" class="btn btn-secondary">API Detalle Sistema (PK 1)</a>
+        </div>
     </div>
 
     <h2 class="text-center">Soporte y Contacto</h2>

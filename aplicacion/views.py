@@ -5,17 +5,16 @@ from aplicacion.models import Juego,Jugador,Sistema
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
-from .serializers import FormJuegoSerializer, FormJugadorSerializer, FormSistemaSerializer
-@api_view(["GET","POST","PUT","DELETE"])
-
+from .serializers import JuegoSerializer, JugadorSerializer, SistemaSerializer
+@api_view(["GET", "POST"])
 def juego_list_api(request):
     if request.method == "GET":
         juego = Juego.objects.all()
-        serializer = FormJuegoSerializer(juego, many = True)
+        serializer = JuegoSerializer(juego, many = True)
         return Response(serializer.data)
     
     if request.method == "POST":
-        serializer = FormJuegoSerializer(data = request.data)
+        serializer = JuegoSerializer(data = request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data,status = status.HTTP_201_CREATED)
@@ -29,11 +28,11 @@ def juego_detail(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = FormJuegoSerializer(juego)
+        serializer = JuegoSerializer(juego)
         return Response(serializer.data)
 
     if request.method == 'PUT':
-        serializer = FormJuegoSerializer(juego, data=request.data)
+        serializer = JuegoSerializer(juego, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -41,6 +40,80 @@ def juego_detail(request, pk):
 
     if request.method == 'DELETE':
         juego.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+        
+@api_view(["GET", "POST"])
+def jugador_list_api(request):
+    if request.method == "GET":
+        jugadores = Jugador.objects.all()
+        serializer = JugadorSerializer(jugadores, many=True)
+        return Response(serializer.data)
+
+    if request.method == "POST":
+        serializer = JugadorSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["GET", "PUT", "DELETE"])
+def jugador_detail(request, pk):
+    try:
+        jugador = Jugador.objects.get(pk=pk)
+    except Jugador.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == "GET":
+        serializer = JugadorSerializer(jugador)
+        return Response(serializer.data)
+
+    if request.method == "PUT":
+        serializer = JugadorSerializer(jugador, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    if request.method == "DELETE":
+        jugador.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+@api_view(["GET", "POST"])
+def sistema_list_api(request):
+    if request.method == "GET":
+        sistemas = Sistema.objects.all()
+        serializer = SistemaSerializer(sistemas, many=True)
+        return Response(serializer.data)
+    
+    if request.method == "POST":
+        serializer = SistemaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+@api_view(["GET", "PUT", "DELETE"])
+def sistema_detail(request, pk):
+    try:
+        sistema = Sistema.objects.get(pk=pk)
+    except Sistema.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == "GET":
+        serializer = SistemaSerializer(sistema)
+        return Response(serializer.data)
+
+    if request.method == "PUT":
+        serializer = SistemaSerializer(sistema, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    if request.method == "DELETE":
+        sistema.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 

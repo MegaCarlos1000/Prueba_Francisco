@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import "../css/Lista.css"
 
 interface Game {
   id: number;
@@ -53,8 +54,8 @@ const ListaJuego: React.FC = () => {
     navigate(`/Actualizar-juego/${id}`);
   };
 
-  if (loading) return <p>Cargando juegos...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <p style={{textAlign:'center',color:"blue",fontSize:"50px"}}>Cargando juegos...</p>;
+  if (error) return <p style={{textAlign:'center',color:"blue",fontSize:"50px"}}>Error: {error}</p>;
 
   return (
     <div className="ListaGame">
@@ -86,8 +87,8 @@ const ListaJuego: React.FC = () => {
                 <td>{game.fecha_salida}</td>
                 <td>{game.plataforma}</td>
                 <td>
-                  <button onClick={() => handleUpdate(game.id)}>Actualizar</button>
-                  <button onClick={() => handleDelete(game.id)}>Eliminar</button>
+                  <button  onClick={() => handleUpdate(game.id)}>Actualizar</button>
+                  <button style={{background :"red"}}onClick={() => handleDelete(game.id)}>Eliminar</button>
                 </td>
               </tr>
             ))}

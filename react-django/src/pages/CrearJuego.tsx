@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
+import "../css/CrearJuego.css"
 
 interface FormData {
   nombre: string;

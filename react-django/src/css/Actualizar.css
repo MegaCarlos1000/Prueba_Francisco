@@ -1,0 +1,127 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Contenedor principal */
+  .UpdateGame,.UpdateJugador,.UpdateSistema {
+    max-width: 500px;
+    margin: 5px auto;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .UpdateGame,.UpdateJugador,.UpdateSistema h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  
+  /* Estilo de los formularios */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  input,
+  select {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+  }
+  
+  input:focus,
+  select:focus {
+    border-color: #00bcd4;
+    outline: none;
+  }
+  
+  button {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #008c9e;
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    transform: translateY(1px);
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  /* Mensajes de carga o error */
+  p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  p.error {
+    color: #f44336;
+  }
+  
+  p.loading {
+    color: #888;
+    font-size: 1.2rem;
+  }
+  
+  /* Estilo cuando no hay juegos disponibles */
+  .UpdateGame p {
+    font-size: 1.2rem;
+    color: #888;
+  }
+  
+  /* Estilos de responsive */
+  @media (max-width: 768px) {
+    .UpdateGame {
+      padding: 1.5rem;
+      max-width: 90%;
+    }
+  
+    form {
+      margin-bottom: 20px;
+    }
+  
+    input,
+    select {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 10px 15px;
+    }
+  }
+  

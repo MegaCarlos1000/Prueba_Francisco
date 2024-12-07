@@ -1,42 +1,123 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+body {
+  background-image: url('./assets/MegaGod.jpg'); /* La ruta aquí debe ser correcta */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.navbar {
+    background-color: #222;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .navbar h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1606ff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+  
+  .navbar ul li {
+    position: relative;
+  }
+  
+  .navbar ul li a {
+    color: #fff;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .navbar ul li a:hover {
+    color: #00bcd4;
+    transform: translateY(-2px);
+  }
+  
+  .navbar ul li a:active {
+    transform: translateY(1px);
+  }
+  
+  /* Indicador de selección del menú */
+  .navbar ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #00bcd4;
+    transition: width 0.3s;
+  }
+  
+  .navbar ul li a:hover::after {
+    width: 100%;
+  }
+  
+  .navbar ul li a:focus {
+    outline: none;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      padding: 1rem;
+    }
+  
+    .navbar h1 {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  
+    .navbar ul {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  
+    .navbar ul li a {
+      font-size: 1.2rem;
+    }
+  }
+  
+  
+  /* Footer */
+  .footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .footer p {
+    margin: 0.3rem;
+    text-shadow: 0px 0px 10px cyan,
+    0px 0px 20px cyan,
+    0px 0px 40px cyan,
+    0px 0px 80px cyan;
+  }
+    

@@ -1,0 +1,104 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Contenedor principal */
+  .CreateGame, .CreateJugador,.CreateSistema {
+    max-width: 600px;
+    margin: 0px auto;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  /* Título */
+  .CreateGame.CreateJugador.CreateSistema h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Estilo del formulario */
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  /* Estilo para los inputs y selects */
+  label {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Efecto al hacer hover en inputs */
+  input:hover, select:hover {
+    border-color: #00bcd4;
+  }
+  
+  /* Efecto de focus */
+  input:focus, select:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+    outline: none;
+  }
+  
+  /* Estilo para el botón */
+  button {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #00bcd4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #008c9e;
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    transform: translateY(1px);
+  }
+  
+  /* Estilos para pantallas pequeñas */
+  @media (max-width: 600px) {
+    .CreateGame {
+      padding: 1.5rem;
+    }
+  
+    form {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+  
+    .CreateGame h1 {
+      font-size: 1.8rem;
+    }
+  }
+  

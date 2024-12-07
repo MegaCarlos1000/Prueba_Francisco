@@ -30,7 +30,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-# Instaladores pip install django-cors-headers
+# Instaladores 
+# pip install django-cors-headers, pip install djangorestframework 
+# pip install mysqlclient==2.2.4 o pip install mysqlclient
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -138,8 +140,5 @@ staticmethod
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://example.com",
     "http://localhost:5173",
-    "http://localhost:8080",
-    "http://127.0.0.1:9000",
 ]

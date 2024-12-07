@@ -1,0 +1,108 @@
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.ListaGame,.ListaJugador,.ListaSistema {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.ListaGame,.ListaJugador,.ListaSistema h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Estilo de la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+td {
+  background-color: #f9f9f9;
+  font-size: 1rem;
+}
+
+td button {
+  padding: 8px 15px;
+  margin-right: 10px;
+  font-size: 0.9rem;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+td button:hover {
+  background-color: #008c9e;
+  transform: translateY(-2px);
+}
+
+td button:active {
+  transform: translateY(1px);
+}
+
+td button:focus {
+  outline: none;
+}
+
+/* Mensajes de carga o error */
+p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Estilo cuando no hay juegos disponibles */
+.ListaGame p {
+  font-size: 1.2rem;
+  color: #888;
+}
+
+/* Estilos de responsive */
+@media (max-width: 768px) {
+  .ListaGame {
+    padding: 1.5rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  td button {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
